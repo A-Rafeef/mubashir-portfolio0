@@ -17,7 +17,7 @@ export function Campaigns({ data }: CampaignsProps) {
   const [selectedCampaign, setSelectedCampaign] = useState<CampaignItem | null>(null);
 
   return (
-    <section id="campaigns" className="py-24 bg-white border-y border-neutral-border">
+    <section id="campaigns" className="py-24 bg-primary border-y border-white/10 text-white relative">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Section Header */}
@@ -25,13 +25,13 @@ export function Campaigns({ data }: CampaignsProps) {
           <FadeUp>
             <div className="flex items-center justify-center gap-2 mb-4">
               <span className="w-8 h-[2px] bg-secondary" />
-              <span className="text-xs font-bold tracking-widest text-secondary-text uppercase">Featured Case Studies</span>
+              <span className="text-xs font-bold tracking-widest text-white/60 uppercase">Featured Case Studies</span>
               <span className="w-8 h-[2px] bg-secondary" />
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold font-epilogue tracking-tight text-primary-text uppercase">
+            <h2 className="text-3xl sm:text-4xl font-extrabold font-epilogue tracking-tight text-white uppercase">
               Proven Campaigns
             </h2>
-            <p className="mt-4 text-sm sm:text-base text-secondary-text font-light">
+            <p className="mt-4 text-sm sm:text-base text-white/80 font-light">
               Explore how strategic positioning, quantitative market analysis, and optimized operations translated into commercial scale.
             </p>
           </FadeUp>
@@ -43,11 +43,11 @@ export function Campaigns({ data }: CampaignsProps) {
             <FadeUp key={item.id} delay={idx * 0.15}>
               <Card
                 hoverLift
-                className="h-full bg-white border border-neutral-border p-0 rounded-[20px] overflow-hidden flex flex-col justify-between"
+                className="h-full bg-white/5 border border-white/10 p-0 rounded-[20px] overflow-hidden flex flex-col justify-between"
               >
                 <div>
                   {/* Card Cover Image */}
-                  <div className="relative w-full aspect-[16/10] bg-neutral-bg border-b border-neutral-border">
+                  <div className="relative w-full aspect-[16/10] bg-[#112d21]/40 border-b border-white/10">
                     <Image
                       src={item.coverImage}
                       alt={item.title}
@@ -59,17 +59,17 @@ export function Campaigns({ data }: CampaignsProps) {
 
                   <div className="p-6">
                     {/* Category */}
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-tertiary">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-secondary">
                       {item.category}
                     </span>
 
                     {/* Title */}
-                    <h3 className="text-lg font-bold font-epilogue text-primary-text mt-2 uppercase">
+                    <h3 className="text-lg font-bold font-epilogue text-white mt-2 uppercase">
                       {item.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="mt-3 text-sm text-secondary-text leading-relaxed font-light">
+                    <p className="mt-3 text-sm text-white/80 leading-relaxed font-light">
                       {item.description}
                     </p>
                   </div>
@@ -80,7 +80,7 @@ export function Campaigns({ data }: CampaignsProps) {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="group gap-1 border-primary/20 text-primary hover:bg-primary/5 rounded-[12px]"
+                    className="group gap-1 border-white/20 text-white hover:bg-white/10 hover:border-white/30 rounded-[12px]"
                     onClick={() => setSelectedCampaign(item)}
                   >
                     Read Case Study
@@ -106,6 +106,7 @@ export function Campaigns({ data }: CampaignsProps) {
                   src={selectedCampaign.coverImage}
                   alt={selectedCampaign.title}
                   fill
+                  sizes="(max-w-768px) 100vw, 800px"
                   className="object-cover"
                 />
               </div>

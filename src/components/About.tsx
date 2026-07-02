@@ -30,7 +30,7 @@ export function About({ data }: AboutProps) {
   ];
 
   return (
-    <section id="about" className="py-24 bg-white border-y border-neutral-border">
+    <section id="about" className="py-24 bg-primary border-y border-white/10 text-white relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           
@@ -39,12 +39,12 @@ export function About({ data }: AboutProps) {
             <FadeUp>
               <div className="flex items-center gap-2 mb-4">
                 <span className="w-8 h-[2px] bg-secondary" />
-                <span className="text-xs font-bold tracking-widest text-secondary-text uppercase">Executive Profile</span>
+                <span className="text-xs font-bold tracking-widest text-white/60 uppercase">Executive Profile</span>
               </div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold font-epilogue tracking-tight text-primary-text uppercase">
+              <h2 className="text-3xl sm:text-4xl font-extrabold font-epilogue tracking-tight text-white uppercase">
                 Bridging Vision With Operational Reality
               </h2>
-              <p className="mt-6 text-base text-secondary-text leading-relaxed font-light">
+              <p className="mt-6 text-base text-white/80 leading-relaxed font-light">
                 {data.intro}
               </p>
             </FadeUp>
@@ -56,16 +56,16 @@ export function About({ data }: AboutProps) {
               const IconComponent = card.icon;
               return (
                 <FadeUp key={card.title} delay={idx * 0.15}>
-                  <Card hoverLift={false} className="relative p-6 bg-neutral-bg/30 border border-neutral-border/80 rounded-[20px] overflow-hidden group">
-                    <div className="absolute top-0 left-0 bottom-0 w-1.5 bg-secondary group-hover:bg-primary transition-colors" />
+                  <Card hoverLift={false} className="relative p-6 bg-white/5 border border-white/10 rounded-[20px] overflow-hidden group">
+                    <div className="absolute top-0 left-0 bottom-0 w-1.5 bg-secondary group-hover:bg-white transition-colors" />
                     
                     <div className="flex gap-4">
-                      <div className="p-3 bg-white rounded-[12px] border border-neutral-border shadow-sm text-primary max-h-fit">
+                      <div className="p-3 bg-white/10 rounded-[12px] border border-white/10 shadow-sm text-secondary max-h-fit">
                         <IconComponent size={20} />
                       </div>
                       <div>
-                        <h3 className="text-lg font-bold font-epilogue text-primary-text mb-2">{card.title}</h3>
-                        <p className="text-sm text-secondary-text leading-relaxed font-light">{card.content}</p>
+                        <h3 className="text-lg font-bold font-epilogue text-white mb-2">{card.title}</h3>
+                        <p className="text-sm text-white/85 leading-relaxed font-light">{card.content}</p>
                       </div>
                     </div>
                   </Card>

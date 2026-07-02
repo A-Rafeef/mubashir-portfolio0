@@ -1,9 +1,9 @@
 import React from 'react';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import { motion } from 'framer-motion';
+import { motion, HTMLMotionProps } from 'framer-motion';
 
-interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+interface CardProps extends HTMLMotionProps<'div'> {
   hoverLift?: boolean;
 }
 
@@ -16,15 +16,22 @@ export function Card({
   const cardClasses = twMerge(
     clsx(
       'bg-white rounded-[20px] border border-neutral-border p-6 shadow-sm transition-all duration-300',
-      hoverLift && 'hover:shadow-md hover:-translate-y-1',
       className
     )
   );
 
   return (
-    <div className={cardClasses} {...props}>
+    <motion.div
+      className={cardClasses}
+      whileHover={hoverLift ? { 
+        y: -6,
+        boxShadow: '0 12px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.08)'
+      } : {}}
+      transition={{ type: 'spring', stiffness: 350, damping: 22 }}
+      {...props}
+    >
       {children}
-    </div>
+    </motion.div>
   );
 }
 

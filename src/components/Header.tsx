@@ -189,11 +189,11 @@ export function Header() {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="md:hidden border-t border-neutral-border bg-white overflow-hidden"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="md:hidden absolute top-full left-0 right-0 bg-white border-t border-b border-neutral-border shadow-xl overflow-hidden z-50"
             >
               <div className="p-6 flex flex-col gap-6 max-h-[calc(100vh-80px)] overflow-y-auto">
                 <motion.nav
@@ -216,9 +216,10 @@ export function Header() {
                       <motion.div
                         key={link.name}
                         variants={{
-                          open: { opacity: 1, y: 0 },
-                          closed: { opacity: 0, y: -10 },
+                          open: { opacity: 1, x: 0 },
+                          closed: { opacity: 0, x: -16 },
                         }}
+                        transition={{ type: 'spring', stiffness: 350, damping: 25 }}
                       >
                         <a
                           href={link.href}
